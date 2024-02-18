@@ -29,17 +29,15 @@ namespace Async_Await_ConsoleApp
                 Console.ForegroundColor= ConsoleColor.White;
             }
 
-            TasksCompleted(sw);
-            
+            TasksCompleted(sw);            
         }
-
 
         private static void TasksCompleted(Stopwatch sw)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("**All tasks completed!!");
             sw.Stop();
-            Console.WriteLine($"Execution Time: {sw.Elapsed.TotalMilliseconds} milliseconds.");
+            Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalMilliseconds)} milliseconds.");
             Console.ForegroundColor = ConsoleColor.White;
         }
     }

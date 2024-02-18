@@ -13,32 +13,32 @@
 
         public static string WashingClothes()
         {
-            Console.WriteLine("-Washing Clothes...");
+            Console.WriteLine("-Started Washing Clothes...");
             Task.Delay(1000).Wait();
-            Console.WriteLine("*Clothes washed.");
+            Console.WriteLine("*Completed Washing Clothes.");
             string clothes = "Wet Clothes.";
             return clothes;
         }
 
         private static void DryClothes(string clothes)
         {
-            Console.WriteLine("-Clothes Drying...");
+            Console.WriteLine("-Started Drying Clothes...");
             Task.Delay(3000).Wait();
-            Console.WriteLine("*Clothes Dried.");
+            Console.WriteLine("*Completed Drying Clothes.");
         }
 
         private static void CleanHouse()
         {
-            Console.WriteLine("-Cleaning House...");
+            Console.WriteLine("-Started Cleaning House...");
             Task.Delay(500).Wait();
-            Console.WriteLine("*House Cleaned.");
+            Console.WriteLine("*Completed Cleaning House.");
         }
 
         private static void CookFood()
         {
-            Console.WriteLine("-Cooking food...");
+            Console.WriteLine("-Started Cooking Food...");
             Task.Delay(1000).Wait();
-            Console.WriteLine("*Food Cooked.");
+            Console.WriteLine("*Completed Cooking Food.");
         }
     }
 }

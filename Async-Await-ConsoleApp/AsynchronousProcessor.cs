@@ -8,43 +8,50 @@ namespace Async_Await_ConsoleApp
 {
     public class AsynchronousProcessor
     {
-        public static void Start()
+        public static async void Start()
         {
             Console.WriteLine("Started Tasks!!!");
-            string clothes = WashingClothes();
-            DryClothes(clothes);
-            CleanHouse();
-            CookFood();
+            Task t1 = WashAndDryClothes();
+            Task t2 = CleanHouse();
+            Task t3 = CookFood();
+
+            await Task.WhenAll(t1, t2, t3);
         }
 
-        public static string WashingClothes()
+        public static async Task WashAndDryClothes() 
         {
-            Console.WriteLine("-Washing Clothes...");
-            Task.Delay(1000).Wait();
-            Console.WriteLine("*Clothes washed.");
+            string clothes = await WashingClothes();
+            await DryClothes(clothes);
+        }
+
+        public static async Task<string> WashingClothes()
+        {
+            Console.WriteLine("-Started Washing Clothes...");
+            await Task.Delay(1000);
+            Console.WriteLine("*Completed Washing Clothes.");
             string clothes = "Wet Clothes.";
             return clothes;
         }
 
-        private static void DryClothes(string clothes)
+        public static async Task DryClothes(string clothes)
         {
-            Console.WriteLine("-Clothes Drying...");
-            Task.Delay(3000).Wait();
-            Console.WriteLine("*Clothes Dried.");
+            Console.WriteLine("-Started Drying Clothes...");
+            await Task.Delay(3000);
+            Console.WriteLine("*Completed Drying Clothes.");
         }
 
-        private static void CleanHouse()
+        public static async Task CleanHouse()
         {
-            Console.WriteLine("-Cleaning House...");
-            Task.Delay(500).Wait();
-            Console.WriteLine("*House Cleaned.");
+            Console.WriteLine("-Started Cleaning House...");
+            await Task.Delay(500);
+            Console.WriteLine("*Completed Cleaning House.");
         }
 
-        private static void CookFood()
+        public static async Task CookFood()
         {
-            Console.WriteLine("-Cooking food...");
-            Task.Delay(1000).Wait();
-            Console.WriteLine("*Food Cooked.");
+            Console.WriteLine("-Started Cooking Food...");
+            await Task.Delay(1000);
+            Console.WriteLine("*Completed Cooking Food.");
         }
     }
 }

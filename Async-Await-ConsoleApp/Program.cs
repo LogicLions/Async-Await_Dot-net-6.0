@@ -13,7 +13,9 @@ namespace Async_Await_ConsoleApp
             Console.WriteLine("2.Asynchronous Operation.");
             ConsoleUi.DashLine();
 
+            Console.WriteLine("Choice: ");
             int input = Convert.ToInt32(Console.ReadLine());
+            ConsoleUi.DashLine();
 
             try
             {

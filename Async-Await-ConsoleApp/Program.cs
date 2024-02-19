@@ -30,9 +30,7 @@ namespace Async_Await_ConsoleApp
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Wrong Choice!!");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    ConsoleUi.Error("Wrong Choice!!");
                 }
             }
             catch (Exception ex)

@@ -16,11 +16,11 @@ namespace Async_Await_ConsoleApp
             Stopwatch sw = Stopwatch.StartNew();
             if (input == 1)
             {
-                SynchronousProcessor.Start();
+                SynchronousProcessor.Start(sw);
             }
             else if (input == 2) 
             {
-                AsynchronousProcessor.Start();
+                AsynchronousProcessor.Start(sw);
             }
             else 
             {
@@ -29,16 +29,7 @@ namespace Async_Await_ConsoleApp
                 Console.ForegroundColor= ConsoleColor.White;
             }
 
-            TasksCompleted(sw);            
-        }
-
-        private static void TasksCompleted(Stopwatch sw)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("**All tasks completed!!");
-            sw.Stop();
-            Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalMilliseconds)} milliseconds.");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadKey();
         }
     }
 }

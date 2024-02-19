@@ -1,14 +1,20 @@
-﻿namespace Async_Await_ConsoleApp
+﻿using System.Diagnostics;
+
+namespace Async_Await_ConsoleApp
 {
     public class SynchronousProcessor
     {
-        public static void Start() 
+        public static void Start(Stopwatch sw)
         {
             Console.WriteLine("Started Tasks!!!");
             string clothes = WashingClothes();
             DryClothes(clothes);
             CleanHouse();
             CookFood();
+
+            TasksCompleted(sw);
+
+            Console.WriteLine("Press any key to exit.");
         }
 
         public static string WashingClothes()
@@ -39,6 +45,15 @@
             Console.WriteLine("-Started Cooking Food...");
             Task.Delay(1000).Wait();
             Console.WriteLine("*Completed Cooking Food.");
+        }
+
+        private static void TasksCompleted(Stopwatch sw)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("**All tasks completed!!");
+            sw.Stop();
+            Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalMilliseconds)} milliseconds.");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

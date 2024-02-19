@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace Async_Await_ConsoleApp
 {
     public class AsynchronousProcessor
     {
-        public static async void Start()
+        public static async void Start(Stopwatch sw)
         {
             Console.WriteLine("Started Tasks!!!");
             Task t1 = WashAndDryClothes();
@@ -16,9 +12,13 @@ namespace Async_Await_ConsoleApp
             Task t3 = CookFood();
 
             await Task.WhenAll(t1, t2, t3);
+            TasksCompleted(sw);
+
+            Console.WriteLine("---------------------------------------------------------");
+            Console.WriteLine("Press any key to exit.");
         }
 
-        public static async Task WashAndDryClothes() 
+        public static async Task WashAndDryClothes()
         {
             string clothes = await WashingClothes();
             await DryClothes(clothes);
@@ -52,6 +52,15 @@ namespace Async_Await_ConsoleApp
             Console.WriteLine("-Started Cooking Food...");
             await Task.Delay(1000);
             Console.WriteLine("*Completed Cooking Food.");
+        }
+
+        private static void TasksCompleted(Stopwatch sw)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("**All tasks completed!!");
+            sw.Stop();
+            Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalMilliseconds)} milliseconds.");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

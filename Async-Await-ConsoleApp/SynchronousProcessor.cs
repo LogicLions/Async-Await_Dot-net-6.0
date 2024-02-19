@@ -21,7 +21,7 @@ namespace Async_Await_ConsoleApp
         public static string WashingClothes()
         {
             Console.WriteLine("-Started Washing Clothes...");
-            Task.Delay(1000).Wait();
+            Task.Delay(2000).Wait();
             Console.WriteLine("*Completed Washing Clothes.");
             string clothes = "Wet Clothes.";
             return clothes;
@@ -30,21 +30,21 @@ namespace Async_Await_ConsoleApp
         private static void DryClothes(string clothes)
         {
             Console.WriteLine("-Started Drying Clothes...");
-            Task.Delay(3000).Wait();
+            Task.Delay(4000).Wait();
             Console.WriteLine("*Completed Drying Clothes.");
         }
 
         private static void CleanHouse()
         {
             Console.WriteLine("-Started Cleaning House...");
-            Task.Delay(500).Wait();
+            Task.Delay(1000).Wait();
             Console.WriteLine("*Completed Cleaning House.");
         }
 
         private static void CookFood()
         {
             Console.WriteLine("-Started Cooking Food...");
-            Task.Delay(1000).Wait();
+            Task.Delay(2000).Wait();
             Console.WriteLine("*Completed Cooking Food.");
         }
 
@@ -53,7 +53,7 @@ namespace Async_Await_ConsoleApp
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("**All tasks completed!!");
             sw.Stop();
-            Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalMilliseconds)} milliseconds.");
+            Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalSeconds)} seconds.");
             Console.ForegroundColor = ConsoleColor.White;
         }
     }

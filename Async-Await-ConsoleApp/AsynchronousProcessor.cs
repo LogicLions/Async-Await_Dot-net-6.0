@@ -6,7 +6,7 @@ namespace Async_Await_ConsoleApp
     {
         public static async void Start(Stopwatch sw)
         {
-            Console.WriteLine("Started Tasks!!!");
+            Console.WriteLine("Started Tasks Asynchronously!!");
             Task t1 = WashAndDryClothes();
             Task t2 = CleanHouse();
             Task t3 = CookFood();
@@ -57,7 +57,7 @@ namespace Async_Await_ConsoleApp
         private static void TasksCompleted(Stopwatch sw)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("**All tasks completed!!");
+            Console.WriteLine("All tasks completed!!");
             sw.Stop();
             Console.WriteLine($"Execution Time: {Convert.ToInt32(sw.Elapsed.TotalSeconds)} seconds.");
             Console.ForegroundColor = ConsoleColor.White;

@@ -14,7 +14,7 @@ namespace Async_Await_ConsoleApp
             await Task.WhenAll(t1, t2, t3);
             TasksCompleted(sw);
 
-            Console.WriteLine("---------------------------------------------------------");
+            ConsoleUi.DashLine();
             Console.WriteLine("Press any key to exit.");
         }
 

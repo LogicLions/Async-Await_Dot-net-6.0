@@ -14,6 +14,7 @@ namespace Async_Await_ConsoleApp
 
             TasksCompleted(sw);
 
+            ConsoleUi.DashLine();
             Console.WriteLine("Press any key to exit.");
         }
 
